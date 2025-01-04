@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+      padding: 0;
+    }
+
+    /* .container {
+      margin: 0 auto;
+      max-width: 250px;
+      width: 100%;
+      padding: 20px;
+      border: solid black 2px;
+      border-radius: 3px;
+      background-color: #d7d1e6;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .twit {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 40px;
+      font-weight: 800;
+    }
+
+    .para {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 20px;
+      background-color: black;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      border: black;
+    } */
+
+
+    /* New card */
+
+    body {
+      background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
+      height: 1vh;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      justify-items: center;
+      padding: 0 20px;
+    }
+
+    .cardname {
+      background-color: white;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
+    }
+
+    .image {
+      max-width: 100%;
+    }
+
+    .textcontain {
+      padding: 20px;
+      display: flex;
+      row-gap: 50px;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .shortinfo {
+      padding: 10px 0;
+    }
+
+    .details {
+      font-size: 20px;
+    }
+/* kj */
+    .secimg {
+      width: 40px;
+       color: red;
+      border-radius: 50%;
+    }
+
+    .foothandle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .about{
+      display: inline-block;
+      border-radius: 20px;
+      font-size: 15px;
+      padding: 5px 10px;
+    }
+
+    .first {
+      background: #56CCF2;
+      background: linear-gradient(to bottom, #2F80ED, #56CCF2);
+      color: #fafafa;
+    }
+
+    .sec {
+      background: #D1913C;
+      background: linear-gradient(to bottom, #FFD194, #D1913C);
+      color: #fafafa;
+    }
+
+    .third {
+      background: #cb2d3e;
+      background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+      color: #fafafa;
+    }
+
+    .time{
+      color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+  </div>
+</body>
+<script>
+
+  const container = document.querySelector(".container")
+
+  const data = [
+
+    {
+      image: "./images/1.jpeg",
+      about: "Technology",
+      colorclass: "first",
+      shortinfo: "What's new in 2025 tech",
+      details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptates perspiciatis praesentium quae minima fugiat omnis, sunt quos odit earum.",
+      secimg: "./images/f-img.png",
+      name: "Jane Doe",
+      time: "2hr ago",
+    },
+
+    {
+      image: "./images/2.jpeg",
+      about: "Food",
+      colorclass: "sec",
+      shortinfo: "Delicious Food",
+      details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptates perspiciatis praesentium quae minima fugiat omnis, sunt quos odit earum.",
+      secimg: "./images/f-img2.png",
+      name: "Jony Doe",
+      time: "yesterday",
+    },
+
+    {
+      image: "./images/3.jpeg",
+      about: "AutoMobile",
+      colorclass: "third",
+      shortinfo: "Race to your heart content",
+      details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptates perspiciatis praesentium quae minima fugiat omnis, sunt quos odit earum.",
+      secimg: "./images/f-img3.png",
+      name: "John Doe",
+      time: "2days ago",
+    },
+
+  ]
+
+  data.map((item, index) => {
+
+    const cards = document.createElement("div")
+    cards.className = "cardname"
+    cards.innerHTML = `
+      <img class="image" src="${item.image}" alt="">
+        <div class="textcontain">
+          <div class="dummy">
+            <h4 class="about ${item.colorclass}">${item.about}</h4>
+            <h1 class="shortinfo">${item.shortinfo}</h1>
+            <p class="details">${item.details}</p>
+          </div>
+            <div class="foothandle">
+              <img class="secimg" src="${item.secimg}" alt="">
+                <div class="foottext">
+                  <h5 class="name"> ${item.name}</h5>
+                  <small class="time">${item.time}</small>
+                </div>
+            </div>
+          </div>`
+
+    container.appendChild(cards)
+  })
+
+
+
+
+
+  //const container = document.querySelector(".container")
+
+  //
+  //const img = document.createElement("img")
+  //img.src = "./images/Screenshot 2025-01-02 114850.png"
+  //container.appendChild(img)
+
+  //
+  //const h1 = document.createElement("h1")
+  //h1.className = "twit"
+  //h1.innerText = "Twitter"
+  //container.appendChild(h1)
+
+  //
+  //const p = document.createElement("p")
+  //p.className = "para"
+  //p.innerText = "  Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+  //container.appendChild(p)
+
+  //
+  //const button = document.createElement("button")
+  //button.className = "button"
+  //button.innerText = "Read More"
+  //container.appendChild(button)
+
+
+
+</script>
+
+</html>
